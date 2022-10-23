@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-principal',
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class PrincipalPage implements OnInit {
 
-  constructor(private router: Router) { }
+  usuario: string = '';
+
+  constructor(private router: Router, private api: ApiService) { 
+    
+  }
 
   ngOnInit() {
+    this.usuario = this.api.obtenerNombreYApellido();
   }
 
   restablerContrasena(){

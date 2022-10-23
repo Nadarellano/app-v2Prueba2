@@ -1,10 +1,5 @@
-<ion-header>
-  <ion-toolbar class="degradado">
-
-    <ion-title>Prueba2</ion-title>
-
-  </ion-toolbar>
-</ion-header>
+<app-date titulo="Login">
+</app-date>
 
 <ion-content class="ion-padding">
   <div class="ion-text-center ion-padding">
@@ -21,12 +16,12 @@
     <ion-label position="floating">Contraseña</ion-label>
     <ion-input type="password" [(ngModel)]="mdl_contrasena"></ion-input>
   </ion-item>
-  <ion-button (click)="ingresar()"expand="block" class="degradado">
-    <ion-icon name="log-in-outline"></ion-icon>
+  <ion-button (click)="ingresar()" expand="block" class="degradado">
+    <ion-icon slot="end" name="log-in-outline"></ion-icon>
     Ingresar
   </ion-button>
   <ion-button (click)="registroUsuario()" expand="block" class="button icon-right ion-chevron-right button-calm" class="degradado ion-margin-top">
-    <ion-icon name="save-outline"></ion-icon>
+    <ion-icon slot="end" name="save-outline"></ion-icon>
     Registrar
   </ion-button>
 </ion-content>

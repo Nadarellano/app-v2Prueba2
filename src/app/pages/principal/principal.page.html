@@ -1,12 +1,5 @@
-<ion-header>
-  <ion-toolbar class="degradado">
-    <ion-buttons slot="start">
-      <ion-back-button class="back" defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>¡Hola!</ion-title>
-    
-  </ion-toolbar>
-</ion-header>
+<app-date titulo="¡Hola {{usuario}}!">
+</app-date>
 
 <ion-content>
 <br>
@@ -17,9 +10,15 @@
   <br>
   <br>
   <ion-list>
+  <br>
+  <br>
 
-    <ion-item><ion-button expand="block" class="boton" (click)="restablerContrasena()" class="degradado ion-margin-top" >Cambiar contraseña</ion-button></ion-item>
-    <ion-item><ion-button  expand="block" class="boton" (click)="cerrarSesion()" class="degradado ion-margin-top">Cerrar sesión</ion-button></ion-item>
+    <ion-button expand="block" class="degradado" (click)="restablerContrasena()">
+      <ion-icon slot="end" name="lock-open-outline"></ion-icon>
+      Restablecer contraseña</ion-button>
+      <ion-button expand="block" class="degradado" (click)="cerrarSesion()">
+      <ion-icon slot="end" name="log-out-outline"></ion-icon>
+      Cerrar sesión</ion-button>
   </ion-list>
 
 </ion-content>

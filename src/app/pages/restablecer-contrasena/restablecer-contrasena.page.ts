@@ -17,6 +17,8 @@ export class RestablecerContrasenaPage implements OnInit {
   constructor( private api: ApiService, private toastController: ToastController, private loading:LoadingController, private router:Router) { }
 
   ngOnInit() {
+    let that= this;
+    that.correo = that.api.obtenerCorreo();
   }
 
   cambioPass(){
