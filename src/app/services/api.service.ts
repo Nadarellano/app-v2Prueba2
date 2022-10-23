@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,39 @@ export class ApiService {
   rutaBase: string =
   'https://fer-sepulveda.cl/API_PRUEBA2/api-service.php';
 
-  constructor(private http: HttpClient, private router: Router, private loading:LoadingController, private toastController: ToastController) { }
+  constructor(private http: HttpClient, private router: Router, private loading:LoadingController, private toastController: ToastController, private sqlite: SQLite) {
+    this.sqlite.create({
+      name: "datos.db",
+      location: "default"
+    }).then((db: SQLiteObject) => {
+      db.executeSql('CREATE TABLE IF NOT EXISTS CORREO(CORREO VARCHAR(40))', 
+      []).then(() => {
+        console.log('msg: TABLA CREADA OK');
+      }).catch(e => {
+        console.log('msg: TABLA NOK');
+      })
+    }).catch(e => {
+      console.log('msg: BASE DE DATOS NOK');
+    })
+   }
+
+   almacenarLogin(correo) { //almacena en BD
+    this.sqlite.create({
+      name: "datos.db",
+      location: "default"
+    }).then((db: SQLiteObject) => {
+      db.executeSql('INSERT INTO CORREO VALUES(?)', 
+        [correo]).then(() => {
+        console.log('msg: CORREO ALMACENADO OK');
+      }).catch(e => {
+        console.log('msg: CORREO NO ALMACENADO');
+      })
+    }).catch(e => {
+      console.log('msg: BASE DE DATOS NOK');
+    })
+  }
+
+
 
   canActivate() {    //función que nos permite activar o desactivar una ruta (adm navegación a las páginas)
     if (!this.validador) {
@@ -69,6 +102,7 @@ export class ApiService {
       if(data['result'] === 'LOGIN OK') {
         this.validador= true
         this.mostrarMensajeExito();
+        this.almacenarLogin(mdl_correo);
         let data2 = await that.obtenerNombre(mdl_correo);
         this.nombreUsuario = data2['result'][0].NOMBRE;
         this.apellidoUsuario = data2['result'][0].APELLIDO;
