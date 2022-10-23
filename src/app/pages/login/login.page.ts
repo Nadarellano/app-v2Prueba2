@@ -12,7 +12,6 @@ export class LoginPage implements OnInit {
   mdl_correo: string = '';
   mdl_contrasena: string = '';
   validador: boolean = false;
-  usuario = [];
 
 
 

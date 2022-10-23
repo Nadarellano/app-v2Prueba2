@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class PrincipalPage implements OnInit {
 
   usuario: string = '';
+  correo: string = '';
 
   constructor(private router: Router, private api: ApiService) { 
     
@@ -23,8 +24,11 @@ export class PrincipalPage implements OnInit {
     this.router.navigate(['restablecer-contrasena']);
   }
 
-  cerrarSesion(){
-    this.router.navigate(['login']);
+  cerrarSesion(correo) {
+    let that= this;
+    that.correo = that.api.obtenerCorreo();
+    that.api.eliminarPesona(correo);
+    that.router.navigate(['login']);
   }
 
 }

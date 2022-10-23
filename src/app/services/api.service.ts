@@ -38,7 +38,7 @@ export class ApiService {
     })
    }
 
-   almacenarLogin(correo) { //almacena en BD
+  almacenarLogin(correo) { //almacena en BD
     this.sqlite.create({
       name: "datos.db",
       location: "default"
@@ -48,6 +48,22 @@ export class ApiService {
         console.log('msg: CORREO ALMACENADO OK');
       }).catch(e => {
         console.log('msg: CORREO NO ALMACENADO');
+      })
+    }).catch(e => {
+      console.log('msg: BASE DE DATOS NOK');
+    })
+  }
+
+  eliminarPesona(correo) {
+    this.sqlite.create({
+      name: "datos.db",
+      location: "default"
+    }).then((db: SQLiteObject) => {
+      db.executeSql('DELETE FROM CORREO WHERE CORREO = ?', 
+        [correo]).then(() => {
+        console.log('CORREO ELIMINADO OK');
+      }).catch(e => {
+        console.log('msg: CORREO NO ELIMINADO');
       })
     }).catch(e => {
       console.log('msg: BASE DE DATOS NOK');
