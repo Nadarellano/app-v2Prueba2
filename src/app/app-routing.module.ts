@@ -60,7 +60,7 @@ const routes: Routes = [
   {
     path: 'restablecer-contrasena',
     loadChildren: () => import('./pages/restablecer-contrasena/restablecer-contrasena.module').then( m => m.RestablecerContrasenaPageModule),
-    //canActivate: [ApiService]
+    canActivate: [ApiService]
   },
 ];
 

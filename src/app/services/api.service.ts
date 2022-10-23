@@ -49,4 +49,15 @@ export class ApiService {
       }).toPromise())
     })
   }
+
+  UsuarioModificarContrasena(correo, contrasenaNueva,contrasenaActual){
+    let that = this;
+
+    return new Promise(resolve => {
+      resolve(that.http.patch(that.rutaBase, {
+        nombreFuncion: "UsuarioModificarContrasena",
+        parametros: [correo, contrasenaNueva, contrasenaActual]
+      }).toPromise()) 
+    })
+  }
 }
