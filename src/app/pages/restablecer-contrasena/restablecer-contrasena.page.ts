@@ -36,6 +36,7 @@ export class RestablecerContrasenaPage implements OnInit {
       if(data['result'][0].RESPUESTA === 'OK') {
         this.contrasena_actual == this.contrasena_nueva;
         this.mostrarok();
+        this.api.eliminarPesona(this.correo);
         this.router.navigate(['login']); 
       } else {
         that.mostrarMensajeError();

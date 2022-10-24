@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RestablecerContrasenaPageRoutingModule } from './restablecer-contrasena-routing.module';
 
 import { RestablecerContrasenaPage } from './restablecer-contrasena.page';
+import { DateComponent } from 'src/app/components/date/date.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { RestablecerContrasenaPage } from './restablecer-contrasena.page';
     IonicModule,
     RestablecerContrasenaPageRoutingModule
   ],
-  declarations: [RestablecerContrasenaPage]
+  declarations: [RestablecerContrasenaPage, DateComponent]
 })
 export class RestablecerContrasenaPageModule {}
