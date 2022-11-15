@@ -138,7 +138,7 @@ export class ApiService {
     return new Promise(resolve => {
       resolve(
         this.http.get(`${this.rutaBase}?nombreFuncion=UsuarioObtenerNombre&correo=${correo}`).toPromise())
-    })
+    }) //parámetros del get van con url
   }
 
   obtenerCorreo(){
