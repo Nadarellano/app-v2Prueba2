@@ -38,7 +38,7 @@ export class RegistrousuarioPage implements OnInit {
       if(data['result'][0].RESPUESTA == 'OK') {
         that.mostrarMensaje('Persona Almacenada Correctamente');
         this.router.navigate(['login']);
-      } else {
+      } else {//se puede agregar antes un else if ()
         that.mostrarMensaje('Error al almacenar persona');
       }
 
