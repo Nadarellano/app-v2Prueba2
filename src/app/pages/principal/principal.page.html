@@ -10,9 +10,12 @@
   <br>
   <br>
   <ion-list>
-  <br>
-  <br>
+    <br>
+    <br>
 
+    <ion-button (click)="tomarFoto()" class="degradado" expand="block">
+    Registro Asistencia</ion-button>
+    <ion-img [src]="rutaFoto"></ion-img> 
     <ion-button expand="block" class="degradado" (click)="restablerContrasena()">
       <ion-icon slot="end" name="lock-open-outline"></ion-icon>
       Restablecer contraseña</ion-button>
