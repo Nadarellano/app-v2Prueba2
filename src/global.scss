@@ -44,3 +44,8 @@
     --color: white;
     --background: rgb(63,94,251);
 }
+
+body.scanner-active {   // se transparenta la app para ver la cámara que está detrás.
+    --background: transparent;
+    --ion-background-color: transparent;
+}

@@ -13,13 +13,14 @@
     <br>
     <br>
 
-    <ion-button (click)="tomarFoto()" class="degradado" expand="block">
-    Registro Asistencia</ion-button>
-    <ion-img [src]="rutaFoto"></ion-img> 
+    <div>
+      <ion-button (click)="leerQR()" expand="block">Registro Asistencia</ion-button>
+      <ion-label class="titulo"> {{ texto }} </ion-label>    
+    </div>
     <ion-button expand="block" class="degradado" (click)="restablerContrasena()">
       <ion-icon slot="end" name="lock-open-outline"></ion-icon>
       Restablecer contraseña</ion-button>
-      <ion-button expand="block" class="degradado" (click)="cerrarSesion()">
+    <ion-button expand="block" class="degradado" (click)="cerrarSesion()">
       <ion-icon slot="end" name="log-out-outline"></ion-icon>
       Cerrar sesión</ion-button>
   </ion-list>
