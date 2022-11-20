@@ -18,6 +18,7 @@ export class ApiService {
   mdl_contrasena: string = '';
   nombreUsuario: string = '';
   apellidoUsuario: string = '';
+  ID_CLASE: string = '';
 
   rutaBase: string =
   'https://fer-sepulveda.cl/API_PRUEBA2/api-service.php';
@@ -36,7 +37,7 @@ export class ApiService {
     }).catch(e => {
       console.log('msg: BASE DE DATOS NOK');
     })
-   }
+  }
 
   almacenarLogin(correo) { //almacena en BD
     this.sqlite.create({
@@ -177,8 +178,16 @@ export class ApiService {
       }).toPromise()) 
     })
   }
-  
-  
 
+  AsistenciaAlmacenar(CORREO: string, ID_CLASE: string) {
+    let that = this;
+    return new Promise(resolve => {
+      resolve(that.http.post(that.rutaBase, {
+        nombreFuncion: "AsistenciaAlmacenar",
+        parametros: [CORREO, ID_CLASE]
+      }).toPromise())
+    })
+  }
 
+  
 }
