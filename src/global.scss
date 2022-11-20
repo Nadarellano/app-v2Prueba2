@@ -48,4 +48,5 @@
 body.scanner-active {   // se transparenta la app para ver la cámara que está detrás.
     --background: transparent;
     --ion-background-color: transparent;
+    display: none;
 }
